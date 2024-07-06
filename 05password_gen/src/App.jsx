@@ -43,7 +43,7 @@ function App() {
         <h1 className="text-white text-center text-2xl my-1">
           Password Generator
         </h1>
-        <div className="flex  rounded-lg overflow-hidden mb-4">
+        <div className="flex  rounded-lg overflow-hidden mb-4 ">
           <input
             type="text"
             value={password}
@@ -54,7 +54,7 @@ function App() {
           />
           <button
             onClick={copyPasstoClip}
-            className="text-center outline-none bg-green-500 text-white px-3 py-1 my-3 shrink-0 rounded"
+            className="text-center outline-none bg-green-500 text-white px-3 py-1 my-3 shrink-0 rounded hover:bg-green-600"
           >
             copy
           </button>
@@ -79,6 +79,7 @@ function App() {
               type="checkbox"
               defaultChecked={numAllowed}
               id="numberInput"
+              className="cursor-pointer"
               onChange={() => {
                 setNumAllowed((prev) => !prev);
               }}
@@ -90,6 +91,7 @@ function App() {
               type="checkbox"
               defaultChecked={charAllowed}
               id="characterInput"
+              className="cursor-pointer"
               onChange={() => {
                 setCharAllowed((prev) => !prev);
               }}
