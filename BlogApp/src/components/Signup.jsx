@@ -6,11 +6,10 @@ import { Button, Input, Logo } from './index.js'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
-
 function Signup() {
     const navigate = useNavigate()
-    const dispatch = useDispatch()
     const [error, setError] = useState("")
+    const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
 
     const create = async (data) => {
@@ -18,14 +17,15 @@ function Signup() {
         try {
             const userData = await authService.createAccount(data)
             if (userData) {
-                const currentUser = await authService.getCurrentUser()
-                if (currentUser) dispatch(login(currentUser));
+                const userData = await authService.getCurrentUser()
+                if (userData) dispatch(login(userData));
                 navigate("/")
             }
         } catch (error) {
             setError(error.message)
         }
     }
+
     return (
         <div className="flex items-center justify-center">
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
